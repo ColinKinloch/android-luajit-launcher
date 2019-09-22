@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
+import android.view.SurfaceHolder;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -50,6 +53,10 @@ public final class MainActivity extends BaseActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         Logger.d(TAG, "onCreate()");
         super.onCreate(savedInstanceState);
+
+        setTheme(R.style.Fullscreen);
+        // Window background must be black for vertical and horizontal lines to be visible
+        getWindow().setBackgroundDrawableResource(android.R.color.black);
 
         /* The NativeActivity framework takes care of the surface/view.
            It seems to work just-fine(TM) in all devices.
@@ -116,6 +123,15 @@ public final class MainActivity extends BaseActivity implements
         Logger.d(TAG, "onNewIntent()");
         super.onNewIntent(intent);
         setIntent(intent);
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder sHolder) {
+        Canvas c = sHolder.lockCanvas();
+        Drawable d = ContextCompat.getDrawable(this, R.drawable.splash_icon);
+        d.setBounds(0, 0, c.getWidth(), c.getHeight());
+        d.draw(c);
+        sHolder.unlockCanvasAndPost(c);
     }
 
     /* Called on permission result */

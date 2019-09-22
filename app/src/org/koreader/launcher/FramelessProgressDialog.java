@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.widget.ProgressBar;
 import android.view.ViewGroup.LayoutParams;
+import android.view.Gravity;
 
 
 class FramelessProgressDialog extends Dialog {
@@ -18,6 +19,7 @@ class FramelessProgressDialog extends Dialog {
         dialog.setTitle(title);
         dialog.setCancelable(false);
         dialog.setOnCancelListener(null);
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
 
         /* The next line will add the ProgressBar to the dialog. */
         dialog.addContentView(new ProgressBar(context),
