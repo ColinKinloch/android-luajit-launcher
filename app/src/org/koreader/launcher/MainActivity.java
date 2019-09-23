@@ -4,14 +4,14 @@ import java.util.Locale;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
 import android.view.SurfaceHolder;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
