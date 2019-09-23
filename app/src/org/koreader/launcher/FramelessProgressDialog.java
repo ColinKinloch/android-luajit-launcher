@@ -2,9 +2,9 @@ package org.koreader.launcher;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.widget.ProgressBar;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ProgressBar;
 
 
 class FramelessProgressDialog extends Dialog {
