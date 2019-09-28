@@ -34,7 +34,8 @@ internal object EPDFactory {
                 }
                 DeviceInfo.EinkDevice.CREMA,
                 DeviceInfo.EinkDevice.TOLINO,
-                DeviceInfo.EinkDevice.NOOK_V520 -> {
+                DeviceInfo.EinkDevice.NOOK_V520,
+                DeviceInfo.EinkDevice.ONYX_NOVAPRO -> {
                     logController("Freescale NTX")
                     NTXNewEPDController()
                 }

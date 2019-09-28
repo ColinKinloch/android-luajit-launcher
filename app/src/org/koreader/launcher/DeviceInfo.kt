@@ -31,6 +31,7 @@ internal object DeviceInfo {
     private val BOYUE_T103D: Boolean
     private val CREMA: Boolean
     private val ONYX_C67: Boolean
+    private val ONYX_NOVAPRO: Boolean
     private val ENERGY: Boolean
     private val INKBOOK: Boolean
     private val TOLINO: Boolean
@@ -53,6 +54,7 @@ internal object DeviceInfo {
         BOYUE_T103D,
         CREMA,
         ONYX_C67,
+        ONYX_NOVAPRO,
         ENERGY,
         INKBOOK,
         TOLINO,
@@ -116,6 +118,11 @@ internal object DeviceInfo {
                 && DEVICE.toLowerCase().startsWith("c67"))
         deviceMap[DeviceInfo.EinkDevice.ONYX_C67] = ONYX_C67
 
+        // Onyx NovaPro
+        ONYX_NOVAPRO = (MANUFACTURER.toLowerCase().contentEquals("onyx")
+                && (PRODUCT.toLowerCase().startsWith("novapro")))
+        deviceMap[DeviceInfo.EinkDevice.ONYX_NOVAPRO] = ONYX_NOVAPRO
+
         // Energy Sistem eReaders. Tested on Energy Ereader Pro 4
         ENERGY = (BRAND.toLowerCase().contentEquals("energysistem") || BRAND.toLowerCase().contentEquals("energy_sistem"))
             && MODEL.toLowerCase().startsWith("ereader")
@@ -170,7 +177,8 @@ internal object DeviceInfo {
         EINK_FREESCALE =
             CREMA ||
                 TOLINO ||
-                NOOK_V520
+                NOOK_V520 ||
+                ONYX_NOVAPRO
 
         // rockchip epd driver
         EINK_ROCKCHIP =
